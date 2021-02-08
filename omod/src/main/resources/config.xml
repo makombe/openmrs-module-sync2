@@ -17,7 +17,7 @@
 
 	<!-- /Base Module Properties -->
 	
-	<require_version>2.0.5 - 2.0.*, 1.11.3, 1.9.10 - 1.9.*</require_version>
+	<require_version>2.0.5 - 2.0.*, 1.11.3, 1.12.*, 1.9.10 - 1.9.*</require_version>
 
 	<require_modules>
 		<require_module version="${uiframeworkVersion}">

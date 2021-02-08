@@ -2,6 +2,8 @@ package org.openmrs.module.sync2.api.dao.impl;
 
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.api.db.hibernate.DbSession;
@@ -13,21 +15,29 @@ import org.openmrs.module.sync2.api.model.audit.PaginatedAuditMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 
-@Repository
+
 public class SyncAuditDaoImpl implements SyncAuditDao {
 
     private static final boolean areVoidedEntriesInPaginatedResult = false;
 
-    @Autowired
-    private DbSessionFactory sessionFactory;
+    //@Autowired
+   // private DbSessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
-    private DbSession getSession() {
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+
+
+    private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
